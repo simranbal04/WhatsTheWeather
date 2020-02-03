@@ -6,6 +6,11 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,7 +24,19 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
+
+    public ImageView background;
+    public TextView cityname;
+    public EditText citytext;
+    public Button findbutton;
+    public EditText result;
+
+    public void findweather(View view)
+    {
+        Log.i("cityname",cityname.getText().toString());
+
+    }
 
 
     @Override
@@ -27,26 +44,15 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DownloadTask task = new DownloadTask();
-//        task.execute("https://openweathermap.org/find?q=toronto");
-        task.execute("https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22");
-//        String result = null;
-//        try {
-//            result = task.execute("https://www.posh24.com/celebrities").get();
-//
-////            Log.i("Content of URL", result);
-//
-//            Log.i("Contents of URL", result);
-//        }
-//        catch (ExecutionException e)
-//        {
-//            e.printStackTrace();
-//        }
-//        catch (InterruptedException e)
-//        {
-//            e.printStackTrace();
-//        }
+        background = (ImageView) findViewById(R.id.background);
+        cityname = (TextView) findViewById(R.id.cityname);
+        citytext = (EditText) findViewById(R.id.citytext);
+        findbutton = (Button) findViewById(R.id.findbutton);
+        result = (EditText) findViewById(R.id.result);
 
+        DownloadTask task = new DownloadTask();
+        task.execute("https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22");
+//
     }
 
     public class DownloadTask extends AsyncTask<String, Void, String>

@@ -6,61 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_column="0"
-            app:layout_row="0"
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/background" />
 
-            app:layout_gravity="fill"/>
+    <TextView
+        android:id="@+id/cityname"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:text="Enter a City"
+        android:textColor="#FDE30C"
+        android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/firstbutton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="celebchosen"
-            android:text=""
-            app:layout_column="0"
-            app:layout_row="1"
-            android:tag="0"/>
+    <EditText
+        android:id="@+id/citytext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:backgroundTint="#00E6CDCD"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:hint="Type Here ..."
+        android:inputType="textPersonName"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp" />
 
+    <Button
+        android:id="@+id/findbutton"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="250dp"
+        android:background="#FFC107"
+        android:onClick="findweather"
+        android:text="What's The Weather" />
 
-        <Button
-            android:id="@+id/secondbutton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="celebchosen"
-            android:text=""
-            app:layout_column="0"
-            app:layout_row="2"
-            android:tag="1"/>
+    <EditText
+        android:id="@+id/result"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/findbutton"
+        android:layout_marginTop="200dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:textColor="#F44336"
+        android:textSize="18sp">
 
+    </EditText>
 
-        <Button
-            android:id="@+id/thirdbutton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="celebchosen"
-            android:text=""
-            app:layout_column="0"
-            app:layout_row="3"
-            android:tag="2"/>
-
-
-        <Button
-            android:id="@+id/fourthbutton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="celebchosen"
-            android:text=""
-            app:layout_column="0"
-            app:layout_row="4"
-            android:tag="3"/>
-
-    </androidx.gridlayout.widget.GridLayout>
 </RelativeLayout>
